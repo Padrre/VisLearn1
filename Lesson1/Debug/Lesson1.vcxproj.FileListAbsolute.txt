@@ -1,0 +1,2 @@
+C:\CurrentProject\VisualLearn\VisLearn1\Lesson1\Debug\Lesson1.exe
+C:\CurrentProject\VisualLearn\VisLearn1\Lesson1\Debug\Lesson1.pdb
