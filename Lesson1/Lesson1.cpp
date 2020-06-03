@@ -2,19 +2,13 @@
 //
 
 #include <iostream>
-
-void func()
-{
-    std::cout << "Hello, World! \n";
-}
+#include "Helpers.h"
 
 int main()
 {
-    int x = 40;
-    int y = 20;
-
-    func();
-    std::cout << x + y;
+    int a = squareFunc(2, 3);
+    std::cout << "Count: " << a << "\n";
+    return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
