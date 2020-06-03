@@ -3,12 +3,24 @@
 
 #include <iostream>
 #include "Helpers.h"
+#include <string>
 
 int main()
 {
-    int a = squareFunc(2, 3);
+    //HomeWork 13
+   /* int a = squareFunc(2, 3);
     std::cout << "Count: " << a << "\n";
-    return 0;
+    return 0;*/
+
+    //Homework 14
+    std::string stroka;
+    std::cout << "Enter You string: ";
+    getline(std::cin, stroka);
+
+    std::cout << "Length: " << stroka.length() << "\n";
+    std::cout << "First simbol: " << stroka[0] << "\n";
+    std::cout << "Last simbol: " << stroka[stroka.length() - 1] << "\n";
+
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
