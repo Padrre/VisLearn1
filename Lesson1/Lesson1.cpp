@@ -2,24 +2,53 @@
 //
 
 #include <iostream>
-#include "Helpers.h"
 #include <string>
+#include "Helpers.h"
+
+//Выводит четные или нечетные числа в заданном диапазоне
+void chehorda(bool isChet, int start, int end)
+{
+    for (int i = start; i < end; ++i)
+    {
+        if (isChet) std::cout << i << "\n";
+        isChet = !isChet;
+    }
+}
 
 int main()
 {
     //HomeWork 13
    /* int a = squareFunc(2, 3);
-    std::cout << "Count: " << a << "\n";
-    return 0;*/
-
+    std::cout << "Count: " << a << "\n";*/
+    
+    
     //Homework 14
-    std::string stroka;
+   /* std::string stroka;
     std::cout << "Enter You string: ";
     getline(std::cin, stroka);
 
-    std::cout << "Length: " << stroka.length() << "\n";
+    std::cout << "Length: " << stroka.length() << std::endl;
     std::cout << "First simbol: " << stroka[0] << "\n";
     std::cout << "Last simbol: " << stroka[stroka.length() - 1] << "\n";
+
+    return 0;*/
+
+
+    //Homework 15
+
+    const int n = 10;       //Длина выводимой последовательности
+    std::string boolCount;  //Для выбора пользователем вариантов чет/нечет с консоли
+
+    //Задание 1
+    for (int i = 0; i < n; ++i)
+    {
+        std::cout << i << "\n";
+    }
+
+    //Задание 2
+    std::cout << "Pechatat' chetnie ili nechetnie? (c/n):";
+    getline(std::cin, boolCount);
+    chehorda((boolCount == "c"), 0, n);
 
 }
 
