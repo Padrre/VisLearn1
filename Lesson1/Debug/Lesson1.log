@@ -1,2 +1,5 @@
 ﻿  Lesson1.cpp
-  Lesson1.vcxproj -> C:\CurrentProject\VisualLearn\VisLearn1\Lesson1\Debug\Lesson1.exe
+C:\CurrentProject\VisualLearn\VisLearn1\Lesson1\Lesson1.cpp(23,1): error C2120: "void" недопустимо для всех типов
+C:\CurrentProject\VisualLearn\VisLearn1\Lesson1\Lesson1.cpp(24,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\CurrentProject\VisualLearn\VisLearn1\Lesson1\Lesson1.cpp(63,13): error C2562: main: функция типа "void", возвращающая значение
+C:\CurrentProject\VisualLearn\VisLearn1\Lesson1\Lesson1.cpp(23): message : см. объявление "main"

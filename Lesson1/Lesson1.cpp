@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Helpers.h"
+using namespace std;
 
 //Выводит четные или нечетные числа в заданном диапазоне
 void chehorda(bool isChet, int start, int end)
@@ -11,43 +12,74 @@ void chehorda(bool isChet, int start, int end)
     start = start + !isChet;
     for (int i = start; i < end; i + 2)
     {
+<<<<<<< Updated upstream
         std::cout << i << "\n";
+=======
+        if (isChet) cout << i << "\n";
+        isChet = !isChet;
+>>>>>>> Stashed changes
     }
+}
+
+int<array> createArray(int array)
+{
+    const int n = 5;
+    int array[n][n];
+
+    return array[][];
 }
 
 int main()
 {
     //HomeWork 13
    /* int a = squareFunc(2, 3);
-    std::cout << "Count: " << a << "\n";*/
+    cout << "Count: " << a << "\n";*/
     
     
     //Homework 14
-   /* std::string stroka;
-    std::cout << "Enter You string: ";
-    getline(std::cin, stroka);
+   /* string stroka;
+    cout << "Enter You string: ";
+    getline(cin, stroka);
 
-    std::cout << "Length: " << stroka.length() << std::endl;
-    std::cout << "First simbol: " << stroka[0] << "\n";
-    std::cout << "Last simbol: " << stroka[stroka.length() - 1] << "\n";
+    cout << "Length: " << stroka.length() << endl;
+    cout << "First simbol: " << stroka[0] << "\n";
+    cout << "Last simbol: " << stroka[stroka.length() - 1] << "\n";
 
     return 0;*/
 
 
     //Homework 15
 
+<<<<<<< Updated upstream
     int n = 10;             //Длина выводимой последовательности
     bool isChet = true;           //Четные или нечетные
+=======
+    //int s = 0;              //Первое число выводимой последовательности
+    //int n = 10;             //Длина выводимой последовательности
+    //string boolCount;  //Для выбора пользователем вариантов чет/нечет с консоли
+>>>>>>> Stashed changes
 
-    //Задание 1
-    for (int i = 0; i < n; ++i)
-    {
-        std::cout << i << "\n";
-    }
+    ////Задание 1
+    //for (int i = 0; i < n; ++i)
+    //{
+    //    cout << i << "\n";
+    //}
 
+    ////Задание 2
+    //cout << "Pechatat' chetnie ili nechetnie? (c/n):";
+    //getline(cin, boolCount);
+    //chehorda((boolCount == "c"), s, (s + n));
+
+<<<<<<< Updated upstream
     //Задание 2
     chehorda(isChet, 0, n);
+=======
+>>>>>>> Stashed changes
 
+    //Homework 16
+    
+
+    return 0;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
