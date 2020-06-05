@@ -8,12 +8,10 @@
 //Выводит четные или нечетные числа в заданном диапазоне
 void chehorda(bool isChet, int start, int end)
 {
-    isChet = !(isChet && start%2);
-
-    for (int i = start; i < end; ++i)
+    start = start + !isChet;
+    for (int i = start; i < end; i + 2)
     {
-        if (isChet) std::cout << i << "\n";
-        isChet = !isChet;
+        std::cout << i << "\n";
     }
 }
 
@@ -38,9 +36,8 @@ int main()
 
     //Homework 15
 
-    int s = 0;              //Первое число выводимой последовательности
     int n = 10;             //Длина выводимой последовательности
-    std::string boolCount;  //Для выбора пользователем вариантов чет/нечет с консоли
+    bool isChet = true;           //Четные или нечетные
 
     //Задание 1
     for (int i = 0; i < n; ++i)
@@ -49,9 +46,7 @@ int main()
     }
 
     //Задание 2
-    std::cout << "Pechatat' chetnie ili nechetnie? (c/n):";
-    getline(std::cin, boolCount);
-    chehorda((boolCount == "c"), s, (s + n));
+    chehorda(isChet, 0, n);
 
 }
 
