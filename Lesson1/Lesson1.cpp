@@ -10,24 +10,13 @@ using namespace std;
 void chehorda(bool isChet, int start, int end)
 {
     start = start + !isChet;
-    for (int i = start; i < end; i + 2)
+    for (int i = start; i < end; )
     {
-<<<<<<< Updated upstream
         std::cout << i << "\n";
-=======
-        if (isChet) cout << i << "\n";
-        isChet = !isChet;
->>>>>>> Stashed changes
+        i = i + 2;
     }
 }
 
-int<array> createArray(int array)
-{
-    const int n = 5;
-    int array[n][n];
-
-    return array[][];
-}
 
 int main()
 {
@@ -50,34 +39,19 @@ int main()
 
     //Homework 15
 
-<<<<<<< Updated upstream
     int n = 10;             //Длина выводимой последовательности
-    bool isChet = true;           //Четные или нечетные
-=======
-    //int s = 0;              //Первое число выводимой последовательности
-    //int n = 10;             //Длина выводимой последовательности
-    //string boolCount;  //Для выбора пользователем вариантов чет/нечет с консоли
->>>>>>> Stashed changes
+    bool isChet = true;     //Четные или нечетные
 
-    ////Задание 1
-    //for (int i = 0; i < n; ++i)
-    //{
-    //    cout << i << "\n";
-    //}
 
-    ////Задание 2
-    //cout << "Pechatat' chetnie ili nechetnie? (c/n):";
-    //getline(cin, boolCount);
-    //chehorda((boolCount == "c"), s, (s + n));
+    //Задание 1
+    for (int i = 0; i < n; ++i)
+    {
+        cout << i << "\n";
+    }
 
-<<<<<<< Updated upstream
     //Задание 2
-    chehorda(isChet, 0, n);
-=======
->>>>>>> Stashed changes
-
-    //Homework 16
     
+    chehorda(isChet, 0, n);
 
     return 0;
 }
