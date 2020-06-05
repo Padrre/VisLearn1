@@ -7,13 +7,12 @@
 using namespace std;
 
 //Выводит четные или нечетные числа в заданном диапазоне
-void chehorda(bool isChet, int start, int end)
+void chehorda(bool isChet, int end)
 {
-    start = start + !isChet;
-    for (int i = start; i < end; )
+    
+    for (int i = !isChet; i < end; i += 2)
     {
         std::cout << i << "\n";
-        i = i + 2;
     }
 }
 
@@ -48,10 +47,10 @@ int main()
     {
         cout << i << "\n";
     }
-
+    cout << "\n";
     //Задание 2
     
-    chehorda(isChet, 0, n);
+    chehorda(isChet, n);
 
     return 0;
 }
