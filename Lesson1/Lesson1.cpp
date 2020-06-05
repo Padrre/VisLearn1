@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include "Helpers.h"
+#include <ctime>
+
 using namespace std;
 
 //Выводит четные или нечетные числа в заданном диапазоне
@@ -37,7 +39,7 @@ int main()
 
 
     //Homework 15
-
+    /*
     int n = 10;             //Длина выводимой последовательности
     bool isChet = true;     //Четные или нечетные
 
@@ -51,6 +53,46 @@ int main()
     //Задание 2
     
     chehorda(isChet, n);
+    */
+
+    //Homework 16
+
+    //Задание 1
+    const int n = 4;
+    int array[n][n] = { {} };
+
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+        {
+            array[i][j] = i + j;
+        }
+    }
+
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+        {
+            cout << array[i][j];
+        }
+        cout << "\n";
+    }
+
+    cout << "\n";
+
+    //Задание 2
+    int summ = 0;
+    struct tm currentTime;
+    time_t now = time(0);
+    localtime_s(&currentTime, &now);
+    int d = currentTime.tm_mday;
+    
+
+    for (int i = 0; i < n; ++i)
+    {
+        summ = summ + array[d%n][i];
+    }
+    cout << summ;
 
     return 0;
 }
