@@ -5,6 +5,7 @@
 #include <string>
 #include "Helpers.h"
 #include <ctime>
+#include <math.h>
 
 using namespace std;
 
@@ -17,6 +18,51 @@ void chehorda(bool isChet, int end)
         std::cout << i << "\n";
     }
 }
+
+
+//Create classes for Homework 17:
+
+class MyClass
+{
+private:
+    int a;
+    int b;
+
+public:
+
+    MyClass() : a(0), b(0)
+    {}
+
+    MyClass(int _a, int _b) : a(_a), b(_b)
+    {}
+
+    void GetCounts()
+    {
+        cout << a << " " << b << endl;
+    }
+};
+
+class Vector
+{
+private:
+    double x = 0.0;
+    double y = 0.0;
+    double z = 0.0;
+
+public:
+    Vector()
+    {}
+
+    Vector(double _x, double _y, double _z) : x(_x), y(_y), z(_z)
+    {}
+
+    void getModule()
+    {
+        double module = sqrt(pow(x, 2) + pow(y,2) + pow(z, 2));
+        cout << module << endl;
+    }
+
+};
 
 
 int main()
@@ -56,7 +102,7 @@ int main()
     */
 
     //Homework 16
-
+    /*
     //Задание 1
     const int n = 4;
     int array[n][n] = { {} };
@@ -93,6 +139,26 @@ int main()
         summ = summ + array[d%n][i];
     }
     cout << summ;
+    */
+
+    //Homework 17
+
+    cout << "Default constructor MyClass: " << endl;
+    MyClass a;
+    a.GetCounts();
+
+    cout << "Param constructor MyClass: " << endl;
+    MyClass b(1,5);
+    b.GetCounts();
+
+    cout << "Default constructor Vector: " << endl;
+    Vector v1;
+    v1.getModule();
+
+    cout << "Param constructor Vector: " << endl;
+    Vector v2(5, 6, 12);
+    v2.getModule();
+
 
     return 0;
 }
