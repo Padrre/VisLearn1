@@ -6,6 +6,8 @@
 #include "Helpers.h"
 #include <ctime>
 #include <math.h>
+#include <stack>
+#include <array>
 
 using namespace std;
 
@@ -64,9 +66,75 @@ public:
 
 };
 
+//Create class for Homework 18
+
+class Stack2
+{
+private:
+    int n = 0;
+    int* iarray = new int[n];
+    int* barray;
+
+public:
+    
+    void Push(int elem)
+    {
+        //Увеличиваем размер массива
+        n = n + 1;
+
+        //Создаем бекап указателя
+        barray = iarray;
+
+        //Новый увеличенный массив
+        iarray = new int[n];
+
+        //Копируем в новый массив значения из бекапа
+        for (int i = 0; i < (n - 1); ++i)
+        {
+            *(iarray + i) = *(barray + i);
+        }
+
+        //Добавляем в последнюю ячейку значение из параметра
+        *(iarray + (n - 1)) = elem;
+
+        //Чистим память
+        delete[] barray;
+        barray = nullptr;
+    }
+
+    void Pop()
+    {
+        n = n - 1;
+
+        barray = iarray;
+        iarray = new int[n];
+
+        for (int i = 0; i < (n); ++i)
+        {
+            *(iarray + i) = *(barray + i);
+        }
+
+        delete[] barray;
+        barray = nullptr;
+    }
+
+    int Top()
+    {
+        return *(iarray + (n - 1));
+    }
+
+    Stack2()
+    {
+        n = 0;
+        iarray = new int[n];
+    }
+
+};
+
 
 int main()
 {
+    setlocale(LC_ALL, "rus");
     //HomeWork 13
    /* int a = squareFunc(2, 3);
     cout << "Count: " << a << "\n";*/
@@ -142,7 +210,7 @@ int main()
     */
 
     //Homework 17
-
+    /*
     cout << "Default constructor MyClass: " << endl;
     MyClass a;
     a.GetCounts();
@@ -158,7 +226,56 @@ int main()
     cout << "Param constructor Vector: " << endl;
     Vector v2(5, 6, 12);
     v2.getModule();
+    */
 
+
+    //Homework 18
+
+    //int n = 5;                              //Размер стака
+    //stack <int> newStack;
+
+    //cout << "Введите " << n << " целых чисел через ENTER: " << endl;
+    //for (int i = 0; i < n; ++i)
+    //{
+    //    int a;
+    //    cin >> a;
+    //    newStack.push(a);
+    //}
+
+    //cout << "Выводим числа из стака: " << endl;
+
+    //while (!newStack.empty())
+    //{
+    //    cout << newStack.top() << " ";
+    //    newStack.pop();
+    //}
+    
+int nn = 4;
+    int* arr1 = new int[nn]{10,20,30,40};
+
+    int* arr2 = new int[5] {0, 0, 0, 0, 50};
+
+    for (int i = 0; i < nn ; ++i)
+    {
+        *(arr2 + i) = *(arr1 + i);
+    }
+
+    delete[] arr1;
+    arr1 = arr2;
+    arr2 = nullptr;
+
+
+    for (int i = 0; i < 5; ++i)
+    {
+        cout << *(arr1 + i) << " ";
+    }
+
+    Stack2 st;
+    st.Push(5);
+    st.Push(6);
+    st.Push(7);
+    st.Pop();
+    cout  << st.Top();
 
     return 0;
 }
