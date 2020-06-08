@@ -113,11 +113,24 @@ public:
         n++;
     }
 
+
+    
+
     T Pop()
     {
-        n--;
-        return (iarray[n-1]);
+        if (n == 0) 
+        {
+            cout << "Стек пуст!" << endl;
+            return NULL;
+        }
+        else 
+        {
+            n--;
+            return (iarray[n]);
+        }
+        
     }
+
 
 
 
@@ -251,21 +264,28 @@ int main()
     st.Push(6);
     st.Push(10);
     st.Push(6);
+    cout << st.Pop() << endl;                           // --Ожидаем 6
     cout << st.Pop() << endl;                           // --Ожидаем 10
 
 
     Stack2 <double>st2;     //Тестируем класс с double
     st2.Push(5.3);
     st2.Push(7.8);
-    cout << st2.Pop() << endl;                          // --Ожидаем 5.3
+    cout << st2.Pop() << endl;                          // --Ожидаем 7.8
     st2.Push(100.05);
     st2.Push(12.6);
-    cout << st2.Pop() << endl;                          // --Ожидаем 100.05
+    cout << st2.Pop() << endl;                          // --Ожидаем 12.6
 
     Stack2 <string>st3;     //Тестируем класс с string
-    st3.Push("Hello");
-    st3.Push("World");
-    cout << st3.Pop() << endl;                          // --Ожидаем "Hello"
+    st3.Push("World!");
+    st3.Push("Hello, ");
+    cout << st3.Pop();
+    cout << st3.Pop() << endl;                          // --Ожидаем "Hello, World!"
+
+    Stack2 <int>st4;     //Тестируем пустой класс
+    st4.Push(9);
+    cout << st4.Pop() << endl;                          // --Ожидаем 9
+    cout << st4.Pop() << endl;                          // --Ожидаем NULL "Стек пуст!" 0
 
 
 
