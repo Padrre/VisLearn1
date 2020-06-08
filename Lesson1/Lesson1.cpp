@@ -11,6 +11,7 @@
 
 using namespace std;
 
+
 //Выводит четные или нечетные числа в заданном диапазоне
 void chehorda(bool isChet, int end)
 {
@@ -67,68 +68,60 @@ public:
 };
 
 //Create class for Homework 18
-
+template <class T>
 class Stack2
 {
 private:
-    int n = 0;
-    int* iarray = new int[n];
-    int* barray;
+    int n;          //текущая длина стака
+    int nMax;       //Максимальная длина стака
+    T* iarray;      //Указатель на стак
+    T* backup;      //временный буфер
 
 public:
-    
-    void Push(int elem)
-    {
-        //Увеличиваем размер массива
-        n = n + 1;
-
-        //Создаем бекап указателя
-        barray = iarray;
-
-        //Новый увеличенный массив
-        iarray = new int[n];
-
-        //Копируем в новый массив значения из бекапа
-        for (int i = 0; i < (n - 1); ++i)
-        {
-            *(iarray + i) = *(barray + i);
-        }
-
-        //Добавляем в последнюю ячейку значение из параметра
-        *(iarray + (n - 1)) = elem;
-
-        //Чистим память
-        delete[] barray;
-        barray = nullptr;
-    }
-
-    void Pop()
-    {
-        n = n - 1;
-
-        barray = iarray;
-        iarray = new int[n];
-
-        for (int i = 0; i < (n); ++i)
-        {
-            *(iarray + i) = *(barray + i);
-        }
-
-        delete[] barray;
-        barray = nullptr;
-    }
-
-    int Top()
-    {
-        return *(iarray + (n - 1));
-    }
 
     Stack2()
     {
         n = 0;
-        iarray = new int[n];
+        nMax = 4;
+        iarray = new T[nMax];
+        backup = nullptr;
+    }
+    
+    void Push(T elem)
+    {
+        //  Проверяем достижение максимальной длины
+        //  и если достигли, то увеличиваем ее вдвое
+        if (n >= nMax)
+        {
+            nMax = nMax * 2;
+            backup = iarray;        //Копируем адрес текущего стака в буфер
+            iarray = new T[nMax];   //Создаем новый стак (утечки нет! Копия указателя создана,
+                                    //                      содержимое удалим в конце метода)
+
+            //Копируем значения из старого стака в новый
+            for (int i = 0; i < n; i++)
+            {
+                iarray[i] = backup[i];
+            }
+
+            //Удаляем старый стак и висяк
+            delete[] backup;
+            backup = nullptr;
+        }
+
+        iarray[n] = elem;
+        n++;
     }
 
+    T Pop()
+    {
+        n--;
+        return (iarray[n-1]);
+    }
+
+
+
+    ~Stack2() { delete[] iarray; }
 };
 
 
@@ -250,32 +243,32 @@ int main()
     //    newStack.pop();
     //}
     
-int nn = 4;
-    int* arr1 = new int[nn]{10,20,30,40};
 
-    int* arr2 = new int[5] {0, 0, 0, 0, 50};
-
-    for (int i = 0; i < nn ; ++i)
-    {
-        *(arr2 + i) = *(arr1 + i);
-    }
-
-    delete[] arr1;
-    arr1 = arr2;
-    arr2 = nullptr;
-
-
-    for (int i = 0; i < 5; ++i)
-    {
-        cout << *(arr1 + i) << " ";
-    }
-
-    Stack2 st;
+    Stack2 <int>st;          //Тестируем класс с int
     st.Push(5);
     st.Push(6);
-    st.Push(7);
-    st.Pop();
-    cout  << st.Top();
+    st.Push(6);
+    st.Push(6);
+    st.Push(10);
+    st.Push(6);
+    cout << st.Pop() << endl;                           // --Ожидаем 10
+
+
+    Stack2 <double>st2;     //Тестируем класс с double
+    st2.Push(5.3);
+    st2.Push(7.8);
+    cout << st2.Pop() << endl;                          // --Ожидаем 5.3
+    st2.Push(100.05);
+    st2.Push(12.6);
+    cout << st2.Pop() << endl;                          // --Ожидаем 100.05
+
+    Stack2 <string>st3;     //Тестируем класс с string
+    st3.Push("Hello");
+    st3.Push("World");
+    cout << st3.Pop() << endl;                          // --Ожидаем "Hello"
+
+
+
 
     return 0;
 }
