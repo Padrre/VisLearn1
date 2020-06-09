@@ -166,6 +166,9 @@ public:
 class Dog : public Animal
 {
 public:
+    Dog()
+    {}
+
     void Voice() override
     {
         cout << "A dog say \"Woof!\"\n";
@@ -175,18 +178,23 @@ public:
 class Bool : public Animal
 {
 public:
+    Bool()
+    {}
+
     void Voice() override
     {
         cout << "A bool say \"Moooh!\"\n";
     }
 };
 
-class Chiken : Animal
+class Chiken : public Animal
 {
 public:
-    void Voice()
+    Chiken()
+    {}
+    void Voice() override
     {
-        cout << "Ko-ko-ko!";
+        cout << "A chiken say \"Ko-ko-ko!\"\n";
     }
 };
 
@@ -346,8 +354,10 @@ int main()
     Animal *barsik = new Cat;
     Animal *juchka = new Dog;
     Animal *vaska = new Bool;
+    Animal* koko = new Chiken;
 
-    Animal* animals[3]{ barsik, juchka, vaska };
+
+    Animal* animals[4]{ barsik, juchka, vaska, koko };
 
     for (auto element : animals)
     {
