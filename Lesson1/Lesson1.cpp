@@ -137,6 +137,59 @@ public:
     ~Stack2() { delete[] iarray; }
 };
 
+//Create class for Homework 19
+
+class Animal
+{
+
+public:
+    Animal(){}
+
+    virtual void Voice()
+    {
+        cout << "Hello, World!";
+    }
+};
+
+class Cat : public Animal
+{
+public:
+    Cat() 
+    {}
+
+    void Voice() override
+    {
+        cout << "A cat say \"Meou!\"\n";
+    }
+};
+
+class Dog : public Animal
+{
+public:
+    void Voice() override
+    {
+        cout << "A dog say \"Woof!\"\n";
+    }
+};
+
+class Bool : public Animal
+{
+public:
+    void Voice() override
+    {
+        cout << "A bool say \"Moooh!\"\n";
+    }
+};
+
+class Chiken : Animal
+{
+public:
+    void Voice()
+    {
+        cout << "Ko-ko-ko!";
+    }
+};
+
 
 int main()
 {
@@ -236,7 +289,7 @@ int main()
 
 
     //Homework 18
-
+    /*
     //int n = 5;                              //Размер стака
     //stack <int> newStack;
 
@@ -286,9 +339,20 @@ int main()
     st4.Push(9);
     cout << st4.Pop() << endl;                          // --Ожидаем 9
     cout << st4.Pop() << endl;                          // --Ожидаем NULL "Стек пуст!" 0
+    */
 
 
+    //Homework 19
+    Animal *barsik = new Cat;
+    Animal *juchka = new Dog;
+    Animal *vaska = new Bool;
 
+    Animal* animals[3]{ barsik, juchka, vaska };
+
+    for (auto element : animals)
+    {
+        element->Voice();
+    }
 
     return 0;
 }
